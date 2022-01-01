@@ -18,8 +18,8 @@ function ClimateChange() {
   this.layout = {
     marginSize: marginSize,
 
-    // Margin positions around the plot. Left and bottom have double
-    // margin size to make space for axis and tick labels on the canvas.
+    // Locations of margin positions. Left and bottom have double margin
+    // size due to axis and tick labels.
     leftMargin: marginSize * 2,
     rightMargin: width - marginSize,
     topMargin: marginSize,
@@ -162,8 +162,11 @@ function ClimateChange() {
         // Draw background gradient to represent colour temperature of
         // the current year.
         noStroke();
-        // fill( ??? );
-        // rect( ??? );
+        fill(this.mapTemperatureToColour(current.temperature));
+        rect(this.mapYearToWidth(previous.year),
+             this.layout.topMargin,
+             segmentWidth,
+             this.layout.plotHeight());
 
         // Draw line segment connecting previous year to current
         // year temperature.

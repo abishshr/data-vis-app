@@ -21,8 +21,8 @@ function PayGapTimeSeries() {
   this.layout = {
     marginSize: marginSize,
 
-    // Margin positions around the plot. Left and bottom have double
-    // margin size to make space for axis and tick labels on the canvas.
+    // Locations of margin positions. Left and bottom have double margin
+    // size due to axis and tick labels.
     leftMargin: marginSize * 2,
     rightMargin: width - marginSize,
     topMargin: marginSize,
@@ -115,15 +115,18 @@ function PayGapTimeSeries() {
       // Create an object to store data for the current year.
       var current = {
         // Convert strings to numbers.
-        // 'year': ???,
-        // 'payGap': ???
+        'year': this.data.getNum(i, 'year'),
+        'payGap': this.data.getNum(i, 'pay_gap')
       };
 
       if (previous != null) {
         // Draw line segment connecting previous year to current
         // year pay gap.
         stroke(0);
-        // line( ??? );
+        line(this.mapYearToWidth(previous.year),
+             this.mapPayGapToHeight(previous.payGap),
+             this.mapYearToWidth(current.year),
+             this.mapPayGapToHeight(current.payGap));
 
         // The number of x-axis labels to skip so that only
         // numXTickLabels are drawn.
@@ -162,6 +165,10 @@ function PayGapTimeSeries() {
   };
 
   this.mapPayGapToHeight = function(value) {
-    // ???
+    return map(value,
+               this.minPayGap,
+               this.maxPayGap,
+               this.layout.bottomMargin, // Smaller pay gap at bottom.
+               this.layout.topMargin);   // Bigger pay gap at top.
   };
 }

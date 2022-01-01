@@ -10,8 +10,8 @@ function TechDiversityGender() {
   // Layout object to store all common plot layout parameters and
   // methods.
   this.layout = {
-    // Margin positions around the plot. Left and bottom margins are
-    // bigger so there is space for axis and tick labels on the canvas.
+    // Locations of margin positions. Left and bottom have double margin
+    // size due to axis and tick labels.
     leftMargin: 130,
     rightMargin: width,
     topMargin: 30,
@@ -75,7 +75,6 @@ function TechDiversityGender() {
     var lineHeight = (height - this.layout.topMargin) /
         this.data.getRowCount();
 
-    // Loop over every row in the data.
     for (var i = 0; i < this.data.getRowCount(); i++) {
 
       // Calculate the y position for each company.
@@ -84,9 +83,9 @@ function TechDiversityGender() {
       // Create an object that stores data from the current row.
       var company = {
         // Convert strings to numbers.
-        // 'name': ???
-        // 'female': ???
-        // 'male': ???
+        'name': this.data.getString(i, 'company'),
+        'female': this.data.getNum(i, 'female'),
+        'male': this.data.getNum(i, 'male'),
       };
 
       // Draw the company name in the left margin.
@@ -105,7 +104,11 @@ function TechDiversityGender() {
            lineHeight - this.layout.pad);
 
       // Draw male employees rectangle.
-      // ???
+      fill(this.maleColour);
+      rect(this.layout.leftMargin + this.mapPercentToWidth(company.female),
+           lineY,
+           this.mapPercentToWidth(company.male),
+           lineHeight - this.layout.pad);
     }
 
     // Draw 50% line
