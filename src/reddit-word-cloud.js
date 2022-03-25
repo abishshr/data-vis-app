@@ -9,26 +9,30 @@ function RedditWordCloud() {
     // Property to represent whether data has been loaded.
     this.loaded = false;
 
-    // Title to display above the plot.
-    this.title = 'Subreddit Wallstreetbets most popular Ticker symbols'
 
+    let sourceData = 'data/reddit-stock-ticker/reddit-data-freq.json';
+    let title = 'Subreddit Wallstreetbets most popular Ticker symbols'
     let words = [];
     let others = [];
-    let data;
-    let count;
-    this.sourceData = 'data/reddit-stock-ticker/reddit-data-freq.json';
-    let max_size = 0;
+    let maxSize = 0;
     let slider,
+        data,
+        stockCount,
         sliderLabel,
         circleCond,
-        wordXPosition;
-    let r = 190;
-    const w = 500;
+        wordWidth,
+        wordXPosition,
+        wordYPosition,
+        currentSliderValue,
+        wordDiameter;
+
+    let sliderMin = 190;
+
 
 
     this.preload = function(){
         const self = this;
-        data = loadJSON(this.sourceData, "json",
+        data = loadJSON(sourceData, "json",
             // Callback function to set the value
             // this.loaded to true.
             function(table) {
@@ -37,18 +41,15 @@ function RedditWordCloud() {
     }
 
     this.setup = function()  {
-        count = Object.keys(data).length;
-        for (let i = 0; i < count; i++) {
-            if (data[i].size > max_size) {
-            max_size = data[i].size;
+        stockCount = Object.keys(data).length;
+        for (let i = 0; i < stockCount; i++) {
+            if (data[i].size > maxSize) {
+            maxSize = data[i].size;
             }
         }
 
-        const minW = 134 * pow(2.72, count * 0.005); // y = 134*e^(0.004*x)
-        slider = createSlider(minW, width/2, r,10);
-    
-        // slider.parent("slider");
-    
+        const minWidth = 134 * pow(2.72, stockCount * 0.005); // y = 134*e^(0.004*x)
+        slider = createSlider(minWidth, width/2, sliderMin,10);
     }
     this.destroy = function() {
         slider.remove();
@@ -59,75 +60,73 @@ function RedditWordCloud() {
             console.log('Data not yet loaded');
             return;
         }
-        // background(40);
-        r = slider.value();
-        
-        // fill(255);
-        textSize(20);
-        fill(0);
-        text('Most Talked about Ticker Symbol in Reddit', 250, 40);
-    
+
+        currentSliderValue = slider.value();
+
+        // Draw the title above the plot.
+        this.drawTitle();
         // words = [];
         others = [];
         translate(width/2, height/2);
-        // scale(300/r);
+        scale(225/currentSliderValue);
         slider.position(350, 50);
         drawCloud();
         translate(-width/2, -height/2);
     }
     function drawCloud() {
-        for (let i = 0; i < count; i++) {
-            let tries = 0;
+        for (let i = 0; i < stockCount; i++) {
+            let rotate = 0;
             do {
-            if (tries == 5000) {
-              console.log("Error at the '" + data[i].text + "'");
-              break;
-            }
-            tries++;
+                if (rotate == 100) {
+                  break;
+                }
+                rotate++;
 
-            const size = (data[i].size / max_size) * 150 + 3;
-            textSize(size);
-            let tWidth = textWidth(data[i].text);
-            wordXPosition = random(-r, r - tWidth);
-            var wordDiameter = floor(sqrt(pow(r, 2) - pow(wordXPosition, 2))); // x^2 + y^2 < r^2
-            var wordYPosition = random(-wordDiameter + size, wordDiameter);
-            const circleCond1 = (pow(wordXPosition + tWidth, 2) + pow(wordYPosition-size, 2)) < pow(r, 2);
-            const circleCond2 = (pow(wordXPosition + tWidth, 2) + pow(wordYPosition, 2)) < pow(r, 2);
-            circleCond = circleCond1 && circleCond2;
+                const wordSize = (data[i].size / maxSize) * 150 + 3;
+                textSize(wordSize);
+                wordWidth = textWidth(data[i].text);
+                wordXPosition = random(-currentSliderValue, currentSliderValue - wordWidth);
+                wordDiameter = floor(sqrt(pow(currentSliderValue, 2) - pow(wordXPosition, 2))); // x^2 + y^2 < currentSliderValue^2
+                wordYPosition = random(-wordDiameter + wordSize, wordDiameter);
+                const circleCondition1 = (pow(wordXPosition + wordWidth, 2) + pow(wordYPosition-wordSize, 2)) < pow(currentSliderValue, 2);
+                const circleCondition2 = (pow(wordXPosition + wordWidth, 2) + pow(wordYPosition, 2)) < pow(currentSliderValue, 2);
+                circleCond = circleCondition1 && circleCondition2;
 
-          } while (!circleCond || (others.length > 0 && isOverlapping(wordXPosition, wordYPosition, data[i], others, max_size)));
+          }
+            while (!circleCond || (others.length > 0
+                && isOverlapping(wordXPosition, wordYPosition, data[i], others, maxSize)));
 
-          words[i] = new Word(wordXPosition, wordYPosition, data[i]);
+          words[i] = new Word(wordXPosition, wordYPosition, data[i], maxSize);
           others.push(words[i]);
 
-          noStroke();
-          textSize(words[i].size);
-          var tWidth = textWidth(words[i].text);
-
-        //   Uncomment to view word highlighting
-        //   fill(125,125,120);
-        //   rect(words[i].x, words[i].y + words[i].size*0.2, tWidth, -words[i].size);
-            // fill(words[i].color.b);
+            noStroke();
+            textSize(words[i].size);
+            wordWidth = textWidth(words[i].text);
+            fill(125,125,120);
             fill(random(0,255),random(0,255),random(0,255));
-            // fill(words[i].color)
-          text(words[i].text, words[i].x, words[i].y);
+            text(words[i].text, words[i].x, words[i].y);
         }
       }
-
-
-      
-      function Word(x, y, data) {
-        this.x = x;
-        this.y = y;
+    this.drawTitle = function () {
+        fill(0);
+        noStroke();
+        textAlign('center', 'center');
+        textSize(20);
+        text(title, slider.x + 140, slider.y - 20 );
+    };
+    function Word(xPos, yPos, data, maxSize) {
+        this.x = xPos;
+        this.y = yPos;
         this.orglsize = data.size;
-        this.size = (data.size/max_size) * 40 + 3;
+        this.size = (data.size/maxSize) * 40 + 3;
         this.text = data.text;
         this.color = {
-          r: random(0,255),
-          g: random(0,255),
-          b: random(0,255)
+            r: random(0,255),
+            g: random(0,255),
+            b: random(0,255)
         };
-      }
+    }
+
       
 
 }
