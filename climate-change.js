@@ -1,9 +1,9 @@
 function ClimateChange() {
 
-  // Name for the visualisation to appear in the menu bar.
+  // Name for the visualization to appear in the menu bar.
   this.name = 'Climate Change';
 
-  // Each visualisation must have a unique ID with no special
+  // Each visualization must have a unique ID with no special
   // characters.
   this.id = 'climate-change';
 
@@ -47,7 +47,7 @@ function ClimateChange() {
   this.loaded = false;
 
   // Preload the data. This function is called automatically by the
-  // gallery when a visualisation is added.
+  // gallery when a visualization is added.
   this.preload = function() {
     var self = this;
     this.data = loadTable(
@@ -75,7 +75,7 @@ function ClimateChange() {
     // Find mean temperature to plot average marker.
     this.meanTemperature = mean(this.data.getColumn('temperature'));
 
-    // Count the number of frames drawn since the visualisation
+    // Count the number of frames drawn since the visualization
     // started so that we can animate the plot.
     this.frameCount = 0;
 
@@ -210,7 +210,7 @@ function ClimateChange() {
       previous = current;
     }
 
-    // Count the number of frames since this visualisation
+    // Count the number of frames since this visualization
     // started. This is used in creating the animation effect and to
     // stop the main p5 draw loop when all years have been drawn.
     this.frameCount++;

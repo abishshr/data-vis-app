@@ -128,3 +128,25 @@ function drawXAxisTickLabel(value, layout, mapFunction) {
          layout.bottomMargin);
   }
 }
+// --------------------------------------------------------------------
+// Plotting helper functions
+// --------------------------------------------------------------------
+
+function isOverlapping(x, y, word, others, max_size) {
+  const wordHeight = (word.size / max_size) * 40 + 3; // scale word size from old data
+  textSize(wordHeight);
+  const wWidth = textWidth(word.text);
+
+  for (let i = 0; i < others.length; i++) {
+    textSize(others[i].size);
+    const oWidth = textWidth(others[i].text);
+
+    if (x + wWidth > others[i].x &&
+        x < others[i].x + oWidth &&
+        y + others[i].size*0.2 > others[i].y - others[i].size*0.7 &&
+        y - wordHeight < others[i].y) {
+      return true;
+    }
+  }
+  return false;
+}

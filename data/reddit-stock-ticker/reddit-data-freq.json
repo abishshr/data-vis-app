@@ -1,0 +1,390 @@
+[
+  {
+    "text": "GME",
+    "size": 13
+  },
+  {
+    "text": "SPY",
+    "size": 11
+  },
+  {
+    "text": "LNG",
+    "size": 11
+  },
+  {
+    "text": "ETF",
+    "size": 10
+  },
+  {
+    "text": "VXX",
+    "size": 10
+  },
+  {
+    "text": "RSX",
+    "size": 9
+  },
+  {
+    "text": "XLU",
+    "size": 9
+  },
+  {
+    "text": "UVXY",
+    "size": 9
+  },
+  {
+    "text": "NAV",
+    "size": 9
+  },
+  {
+    "text": "AMC",
+    "size": 8
+  },
+  {
+    "text": "NOG",
+    "size": 8
+  },
+  {
+    "text": "USA",
+    "size": 8
+  },
+  {
+    "text": "EPS",
+    "size": 8
+  },
+  {
+    "text": "BABA",
+    "size": 8
+  },
+  {
+    "text": "ETN",
+    "size": 7
+  },
+  {
+    "text": "FUD",
+    "size": 6
+  },
+  {
+    "text": "FSD",
+    "size": 6
+  },
+  {
+    "text": "UAN",
+    "size": 5
+  },
+  {
+    "text": "FDX",
+    "size": 5
+  },
+  {
+    "text": "BYD",
+    "size": 5
+  },
+  {
+    "text": "TLT",
+    "size": 5
+  },
+  {
+    "text": "NIO",
+    "size": 5
+  },
+  {
+    "text": "NEE",
+    "size": 5
+  },
+  {
+    "text": "GDP",
+    "size": 4
+  },
+  {
+    "text": "CEO",
+    "size": 4
+  },
+  {
+    "text": "AND",
+    "size": 4
+  },
+  {
+    "text": "ALL",
+    "size": 4
+  },
+  {
+    "text": "USO",
+    "size": 4
+  },
+  {
+    "text": "KNOW",
+    "size": 4
+  },
+  {
+    "text": "ITM",
+    "size": 4
+  },
+  {
+    "text": "GAM",
+    "size": 4
+  },
+  {
+    "text": "FOR",
+    "size": 4
+  },
+  {
+    "text": "FCF",
+    "size": 4
+  },
+  {
+    "text": "CVR",
+    "size": 3
+  },
+  {
+    "text": "CPI",
+    "size": 3
+  },
+  {
+    "text": "CAE",
+    "size": 3
+  },
+  {
+    "text": "BLK",
+    "size": 3
+  },
+  {
+    "text": "TWO",
+    "size": 3
+  },
+  {
+    "text": "ONE",
+    "size": 3
+  },
+  {
+    "text": "MORE",
+    "size": 3
+  },
+  {
+    "text": "MGM",
+    "size": 3
+  },
+  {
+    "text": "KEY",
+    "size": 3
+  },
+  {
+    "text": "IRS",
+    "size": 2
+  },
+  {
+    "text": "ICE",
+    "size": 3
+  },
+  {
+    "text": "GMT",
+    "size": 3
+  },
+  {
+    "text": "BPS",
+    "size": 2
+  },
+  {
+    "text": "BIT",
+    "size": 2
+  },
+  {
+    "text": "XOM",
+    "size": 2
+  },
+  {
+    "text": "WFC",
+    "size": 2
+  },
+  {
+    "text": "VPU",
+    "size": 2
+  },
+  {
+    "text": "VHT",
+    "size": 2
+  },
+  {
+    "text": "VDE",
+    "size": 2
+  },
+  {
+    "text": "VDC",
+    "size": 2
+  },
+  {
+    "text": "VAW",
+    "size": 2
+  },
+  {
+    "text": "VALE",
+    "size": 2
+  },
+  {
+    "text": "UUUU",
+    "size": 2
+  },
+  {
+    "text": "UBS",
+    "size": 2
+  },
+  {
+    "text": "TWTR",
+    "size": 2
+  },
+  {
+    "text": "TIME",
+    "size": 2
+  },
+  {
+    "text": "SSD",
+    "size": 2
+  },
+  {
+    "text": "SMP",
+    "size": 2
+  },
+  {
+    "text": "SILJ",
+    "size": 2
+  },
+  {
+    "text": "RSXJ",
+    "size": 1
+  },
+  {
+    "text": "PNC",
+    "size": 1
+  },
+  {
+    "text": "PFE",
+    "size": 1
+  },
+  {
+    "text": "PAG",
+    "size": 1
+  },
+  {
+    "text": "OXY",
+    "size": 1
+  },
+  {
+    "text": "NYT",
+    "size": 1
+  },
+  {
+    "text": "NOW",
+    "size": 1
+  },
+  {
+    "text": "MTL",
+    "size": 1
+  },
+  {
+    "text": "MSCI",
+    "size": 1
+  },
+  {
+    "text": "MRO",
+    "size": 1
+  },
+  {
+    "text": "MOS",
+    "size": 1
+  },
+  {
+    "text": "MOD",
+    "size": 1
+  },
+  {
+    "text": "MCD",
+    "size": 1
+  },
+  {
+    "text": "MBT",
+    "size": 1
+  },
+  {
+    "text": "LTM",
+    "size": 1
+  },
+  {
+    "text": "IPO",
+    "size": 1
+  },
+  {
+    "text": "INB",
+    "size": 1
+  },
+  {
+    "text": "IGT",
+    "size": 1
+  },
+  {
+    "text": "HES",
+    "size": 1
+  },
+  {
+    "text": "GLF",
+    "size": 1
+  },
+  {
+    "text": "GAS",
+    "size": 1
+  },
+  {
+    "text": "EVER",
+    "size": 1
+  },
+  {
+    "text": "ERUS",
+    "size": 1
+  },
+  {
+    "text": "EMI",
+    "size": 1
+  },
+  {
+    "text": "EDU",
+    "size": 1
+  },
+  {
+    "text": "DGX",
+    "size": 1
+  },
+  {
+    "text": "CVX",
+    "size": 1
+  },
+  {
+    "text": "CORN",
+    "size": 1
+  },
+  {
+    "text": "CIA",
+    "size": 1
+  },
+  {
+    "text": "CCJ",
+    "size": 1
+  },
+  {
+    "text": "BRC",
+    "size": 1
+  },
+  {
+    "text": "BOND",
+    "size": 1
+  },
+  {
+    "text": "BOIL",
+    "size": 1
+  },
+  {
+    "text": "AIR",
+    "size": 1
+  },
+  {
+    "text": "AGI",
+    "size": 1
+  }
+]

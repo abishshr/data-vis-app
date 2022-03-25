@@ -1,9 +1,9 @@
 function TechDiversityRace() {
 
-  // Name for the visualisation to appear in the menu bar.
+  // Name for the visualization to appear in the menu bar.
   this.name = 'Tech Diversity: Race';
 
-  // Each visualisation must have a unique ID with no special
+  // Each visualization must have a unique ID with no special
   // characters.
   this.id = 'tech-diversity-race';
 
@@ -11,7 +11,7 @@ function TechDiversityRace() {
   this.loaded = false;
 
   // Preload the data. This function is called automatically by the
-  // gallery when a visualisation is added.
+  // gallery when a visualization is added.
   this.preload = function() {
     var self = this;
     this.data = loadTable(

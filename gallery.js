@@ -5,13 +5,13 @@ function Gallery() {
   var self = this;
 
 
-  // Add a new visualisation to the navigation bar.
+  // Add a new visualization to the navigation bar.
   this.addVisual = function(vis) {
 
     // Check that the vis object has an id and name.
     if (!vis.hasOwnProperty('id')
         && !vis.hasOwnProperty('name')) {
-      alert('Make sure your visualisation has an id and name!');
+      alert('Make sure your visualization has an id and name!');
     }
 
     // Check that the vis object has a unique id.
@@ -69,7 +69,7 @@ function Gallery() {
   };
 
   this.findVisIndex = function(visId) {
-    // Search through the visualisations looking for one with the id
+    // Search through the visualizations looking for one with the id
     // matching visId.
     for (var i = 0; i < this.visuals.length; i++) {
       if (this.visuals[i].id == visId) {
@@ -77,7 +77,7 @@ function Gallery() {
       }
     }
 
-    // Visualisation not found.
+    // visualization not found.
     return null;
   };
 
@@ -85,21 +85,21 @@ function Gallery() {
     var visIndex = this.findVisIndex(visId);
 
     if (visIndex != null) {
-      // If the current visualisation has a deselect method run it.
+      // If the current visualization has a deselect method run it.
       if (this.selectedVisual != null
           && this.selectedVisual.hasOwnProperty('destroy')) {
         this.selectedVisual.destroy();
       }
-      // Select the visualisation in the gallery.
+      // Select the visualization in the gallery.
       this.selectedVisual = this.visuals[visIndex];
 
-      // Initialise visualisation if necessary.
+      // Initialise visualization if necessary.
       if (this.selectedVisual.hasOwnProperty('setup')) {
         this.selectedVisual.setup();
       }
 
       // Enable animation in case it has been paused by the current
-      // visualisation.
+      // visualization.
       loop();
     }
   };

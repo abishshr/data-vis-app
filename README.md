@@ -1,4 +1,4 @@
-## Case study 3: Data visualisation
+## Case study 3: Data visualization
 
 ### Tasks
 
@@ -6,9 +6,9 @@ Download the data vis project template from the bottom of this page
 and look over the code, starting with `stekch.js` to get an overview
 of how the programme works. Try running the code.
 
-All visualisations are stored in the `gallery` global variable. This
+All visualizations are stored in the `gallery` global variable. This
 variable can be used for debugging in the console to access properties
-and methods defined within each visualisation.
+and methods defined within each visualization.
 
 Lines you need to complete in this case study are marked **???**.
 
@@ -16,7 +16,7 @@ Lines you need to complete in this case study are marked **???**.
 
 ![tech-diversity-gender](https://www.doc.gold.ac.uk/~jfort010/ip/case-studies/data-vis/figures/tech-diversity-gender.png)
 
-Complete the visualisation defined in `tech-diversity-gender.js` to
+Complete the visualization defined in `tech-diversity-gender.js` to
 create a stacked bar chart by adding the proportion of men employed at
 each company.
 
@@ -47,7 +47,7 @@ each company.
 
 ![paygap1997-2017](https://www.doc.gold.ac.uk/~jfort010/ip/case-studies/data-vis/figures/pay-gap-1997-2017.png)
 
-Complete the visualisation defined in `pay-gap-1997-2017.js` to create
+Complete the visualization defined in `pay-gap-1997-2017.js` to create
 a line graph representing the pay gap between female and male
 employees over time.
 
@@ -69,7 +69,7 @@ employees over time.
 
 ![climateChange](https://www.doc.gold.ac.uk/~jfort010/ip/case-studies/data-vis/figures/climate-change.png)
 
-Complete the visualisation defined in `climate-change.js` to create a
+Complete the visualization defined in `climate-change.js` to create a
 line graph with gradient fill background representing the change in
 the Earth’s surface temperature.
 
@@ -80,7 +80,7 @@ the Earth’s surface temperature.
 2. Complete the `rect()` function below the `fill()` to create a
    gradient effect background (rectangles spaced evenly across the
    x-axis – one rectangle per year). All of the values you need are
-   already accessible within this visualisation object – you need to
+   already accessible within this visualization object – you need to
    find them!
    - Hint: Look at the `mapYearToWidth()` method, the `layout` object,
      and the `segmentWidth` variable.
@@ -89,7 +89,7 @@ the Earth’s surface temperature.
 
 ![tech-diversity-race](https://www.doc.gold.ac.uk/~jfort010/ip/case-studies/data-vis/figures/tech-diversity-race.png)
 
-Complete the visualisation defined in `tech-diversity-race.js` to
+Complete the visualization defined in `tech-diversity-race.js` to
 create a pie chart to represent the racial diversity of prominent tech
 companies.
 
@@ -112,7 +112,7 @@ companies.
 
 ![paygapByJob2017](https://www.doc.gold.ac.uk/~jfort010/ip/case-studies/data-vis/figures/pay-gap-by-job.png)
 
-Complete the visualisation defined in `pay-gap-by-job-2017.js` to
+Complete the visualization defined in `pay-gap-by-job-2017.js` to
 create a scatter plot representing the difference in pay for men and
 women across different jobs.
 
