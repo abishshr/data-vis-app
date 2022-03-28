@@ -16,7 +16,7 @@ function PieChart(x, y, diameter) {
     return radians;
   };
 
-  this.draw = function(data, labels, colours, title) {
+  this.draw = function(data, labels, colours, company, title) {
 
     // Test that data is not empty and that each input array is the
     // same length.
@@ -36,6 +36,10 @@ Arrays must be the same length!`);
     var angles = this.get_radians(data);
     var lastAngle = 0;
     var colour;
+
+    fill( 	207, 207, 196);
+    stroke(0);
+    rect(755, 140, 90, 190,20)
 
     for (var i = 0; i < data.length; i++) {
       if (colours) {
@@ -58,6 +62,20 @@ Arrays must be the same length!`);
 
       lastAngle += angles[i];
     }
+
+    //Show company logo in the center
+    let tSize = 25;
+    fill(220, 220, 220);
+    stroke(0);
+    strokeWeight(2);
+    arc(this.x, this.y, this.diameter / 3, this.diameter / 3, 0, TWO_PI);
+    fill( 0);
+    noStroke();
+    textSize(tSize);
+    textAlign('center', 'center');
+    text(company, this.x, this.y);
+
+
 
     if (title) {
       noStroke();

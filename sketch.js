@@ -8,10 +8,8 @@ function setup() {
   canvasContainer = select('#app');
   var c = createCanvas(1024, 576);
   c.parent('app');
-
   // Create a new gallery object.
   gallery = new Gallery();
-
   // Add the visualization objects here.
   gallery.addVisual(new TechDiversityRace());
   gallery.addVisual(new TechDiversityGender());
@@ -20,8 +18,7 @@ function setup() {
   gallery.addVisual(new ClimateChange());
   gallery.addVisual(new GoogleIncomeExpense());
   gallery.addVisual(new RedditWordCloud());
-  
-
+  gallery.addVisual(new Covid19Map());
 }
 
 function draw() {
